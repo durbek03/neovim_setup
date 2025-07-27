@@ -36,3 +36,7 @@ vim.keymap.set("n", "<C-k>",  ":resize +2<CR>",          { noremap = true, silen
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>mm", "%!jq '.'", { noremap = true, silent = true })
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.keymap.set("n", "<leader>fl", "<cmd>FlutterLogToggle<cr>", { desc = "Toggle Flutter Log" })
+vim.keymap.set("n", "<leader>fc", "<cmd>FlutterLogClear<cr>", { desc = "Toggle Flutter Log" })
