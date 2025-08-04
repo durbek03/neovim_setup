@@ -24,7 +24,7 @@ require("lazy").setup({
     {"nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate", config = 
         function()
             require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "c", "lua", "dart", "json", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
+  ensure_installed = { "c", "lua", "dart", "kotlin", "json", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
 
   sync_install = false,
 
@@ -48,7 +48,3 @@ require("lazy").setup({
   },
   checker = { enabled = true },
 })
-
-function Hello()
-    return "smth"
-end
