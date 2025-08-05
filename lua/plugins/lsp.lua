@@ -29,7 +29,15 @@ return {
         config = function()
             local lspconfig = require("lspconfig")
             lspconfig.lua_ls.setup {}
-            lspconfig.sourcekit.setup {}
+            lspconfig.sourcekit.setup {
+                 capabilities = {
+                    workspace = {
+                        didChangeWatchedFiles = {
+                            dynamicRegistration = true,
+                        },
+                    },
+                },
+            }
 
              vim.api.nvim_create_autocmd('LspAttach', {
                 desc = 'LSP Actions',
