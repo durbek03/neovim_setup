@@ -1,6 +1,6 @@
 local on_attach_lsp = function(client, bufnr)
+    client.server_capabilities.semanticTokensProvider = nil
     local buf_map = function(mode, lhs, rhs, desc)
-        client.server_capabilities.semanticTokensProvider = nil
         local opts = { noremap = true, silent = true, buffer = bufnr }
         if desc then opts.desc = desc end
         vim.keymap.set(mode, lhs, rhs, opts)
