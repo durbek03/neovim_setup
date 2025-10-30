@@ -7,9 +7,10 @@ local on_attach_lsp = function(client, bufnr)
     end
 
     buf_map("n", "<leader>d", vim.lsp.buf.definition, "Go to Definition")
-    buf_map("n", "gD", vim.lsp.buf.declaration, "Go to Declaration")
+    buf_map("n", "gD", vim.lsp.buf.type_definition, "Go to Type Definition")
     buf_map("n", "gi", vim.lsp.buf.implementation, "Go to Implementation")
-    buf_map("n", "<leader>r", vim.lsp.buf.references, "Find References")
+    buf_map("n", "<leader>r", require("telescope.builtin").lsp_references, "Find References")
+
     buf_map("n", "K", vim.lsp.buf.hover, "Hover Info")
     buf_map("n", "<C-k>", vim.lsp.buf.signature_help, "Signature Help")
     buf_map("n", "<leader>rn", vim.lsp.buf.rename, "Rename Symbol")
