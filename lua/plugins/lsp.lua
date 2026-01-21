@@ -9,7 +9,11 @@ local on_attach_lsp = function(client, bufnr)
     buf_map("n", "<leader>d", vim.lsp.buf.definition, "Go to Definition")
     buf_map("n", "gD", vim.lsp.buf.type_definition, "Go to Type Definition")
     buf_map("n", "gi", vim.lsp.buf.implementation, "Go to Implementation")
-    buf_map("n", "<leader>r", require("telescope.builtin").lsp_references, "Find References")
+    buf_map("n", "<leader>r",
+        function()
+            require("telescope.builtin").lsp_references()
+        end,
+        "Find References")
 
     buf_map("n", "K", vim.lsp.buf.hover, "Hover Info")
     buf_map("n", "<C-k>", vim.lsp.buf.signature_help, "Signature Help")
@@ -24,23 +28,12 @@ local on_attach_lsp = function(client, bufnr)
     buf_map("n", "<leader>q", vim.diagnostic.setloclist, "Diagnostics List")
     buf_map("n", "<leader>ws", vim.lsp.buf.workspace_symbol, "Search Workspace Symbols")
 end
+
 return {
     {
         "neovim/nvim-lspconfig",
         config = function()
-            local lspconfig = require("lspconfig")
-            lspconfig.lua_ls.setup {}
-            lspconfig.sourcekit.setup {
-                 capabilities = {
-                    workspace = {
-                        didChangeWatchedFiles = {
-                            dynamicRegistration = true,
-                        },
-                    },
-                },
-            }
-
-             vim.api.nvim_create_autocmd('LspAttach', {
+            vim.api.nvim_create_autocmd('LspAttach', {
                 desc = 'LSP Actions',
                 callback = function(args)
                     local bufnr = args.bufnr
@@ -51,16 +44,5 @@ return {
             })
         end
 
-    },
-    {
-        'nvim-flutter/flutter-tools.nvim',
-        dependencies = {
-            'nvim-lua/plenary.nvim',
-            'stevearc/dressing.nvim', -- optional for vim.ui.select
-        },
-        config = function()
-            require("flutter-tools").setup {
-            }
-        end
     }
-} 
+}
