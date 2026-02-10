@@ -36,7 +36,7 @@ return {
             vim.api.nvim_create_autocmd('LspAttach', {
                 desc = 'LSP Actions',
                 callback = function(args)
-                    local bufnr = args.bufnr
+                    local bufnr = args.buf
                     local client_id = args.data.client_id
                     local client = vim.lsp.get_client_by_id(client_id)
                     on_attach_lsp(client, bufnr)

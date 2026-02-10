@@ -4,7 +4,7 @@ vim.g.mapleader = " "
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>pf', builtin.find_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', 'C-p', builtin.git_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>ps', function() builtin.live_grep({ default_text = vim.fn.input("Grep > ") }) end,
+vim.keymap.set('n', '<leader>ps', function() builtin.live_grep() end,
     { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>sd', builtin.lsp_document_symbols, { desc = 'Telescope buffers' })
 vim.keymap.set("n", "<leader>fw", function()

@@ -7,10 +7,23 @@ function enableLua()
             Lua = {
                 runtime = {
                     version = 'LuaJIT',
-                }
-            }
-        }
+                },
+                diagnostics = {
+                    globals = { 'vim' },
+                },
+                workspace = {
+                    library = {
+                        vim.env.VIMRUNTIME,
+                    },
+                    checkThirdParty = false,
+                },
+                telemetry = {
+                    enable = false,
+                },
+            },
+        },
     }
+
     vim.lsp.enable('lua_ls')
 end
 
@@ -43,7 +56,7 @@ end
 function enableZig()
     vim.lsp.config['zls'] = {
         -- Set to 'zls' if `zls` is in your PATH
-        cmd = { '/path/to/zls_executable' },
+        cmd = { 'zls' },
         filetypes = { 'zig' },
         root_markers = { 'build.zig' },
         -- There are two ways to set config options:
@@ -61,11 +74,14 @@ function enableZig()
                 -- enable_build_on_save = true,
 
                 -- omit the following line if `zig` is in your PATH
-                zig_exe_path = '/path/to/zig_executable'
             }
         },
     }
     vim.lsp.enable('zls')
+end
+
+function enableKotlin()
+    vim.lsp.enable('kotlin_lsp')
 end
 
 return {
@@ -74,5 +90,6 @@ return {
     enableDart(),
     enableGo(),
     enableSwift(),
-    enableZig()
+    enableZig(),
+    enableKotlin()
 }
