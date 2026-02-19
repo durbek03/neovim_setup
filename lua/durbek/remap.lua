@@ -51,3 +51,4 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection down", sil
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up", silent = true })
 
 vim.keymap.set("n", "<leader>z", ":%!jq<CR>", { noremap = true, silent = true })
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])

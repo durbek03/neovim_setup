@@ -10,7 +10,19 @@ return {
     },
     {
         "ellisonleao/gruvbox.nvim",
-        name = "gruvbox"
+        name = "gruvbox",
+        config = function()
+            require("gruvbox").setup({
+                bold = false,
+                italic = {
+                    strings = false,
+                    emphasis = false,
+                    comments = false,
+                    operators = false,
+                    folds = false,
+                },
+            })
+        end
     },
     {
         "rose-pine/neovim",
@@ -23,7 +35,7 @@ return {
                 styles = {
                     transparency = true,
                     italic = false, -- Disables italics globally for all groups
-                    bold = true, -- You can keep bold if you like it, or set to false too
+                    bold = true,    -- You can keep bold if you like it, or set to false too
                 },
             })
         end

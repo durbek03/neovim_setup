@@ -84,6 +84,14 @@ function enableKotlin()
     vim.lsp.enable('kotlin_lsp')
 end
 
+function enableTs()
+    vim.lsp.config['tsserver'] = {
+        cmd = { 'typescript-language-server', '--stdio' },
+        filetypes = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
+    }
+    vim.lsp.enable('tsserver')
+end
+
 return {
     enableLua(),
     enablePython(),
@@ -91,5 +99,6 @@ return {
     enableGo(),
     enableSwift(),
     enableZig(),
-    enableKotlin()
+    enableKotlin(),
+    enableTs()
 }
