@@ -18,14 +18,15 @@ vim.keymap.set("n", "<leader>Y", '"+yy')
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
 
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-
--- Move selection down
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection down", silent = true })
-
--- Move selection up
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up", silent = true })
-
+-- formatting
 vim.keymap.set("n", "<leader>z", ":%!jq<CR>", { noremap = true, silent = true })
+
+-- exit vim in terminal mode
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
+
+-- buffer mappings
+vim.keymap.set("n", "<leader>j", ":bnext<CR>", { desc = "Next buffer" })
+vim.keymap.set("n", "<leader>k", ":bprevious<CR>", { desc = "Previous buffer" })
+
+vim.keymap.set("n", "<leader>l", "<C-^>", { desc = "Last buffer" })
+vim.keymap.set("n", "<leader>bd", ":bdelete<CR>", { desc = "Delete current buffer and go to next" })
