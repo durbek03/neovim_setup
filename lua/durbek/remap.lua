@@ -30,3 +30,5 @@ vim.keymap.set("n", "<leader>k", ":bprevious<CR>", { desc = "Previous buffer" })
 
 vim.keymap.set("n", "<leader>l", "<C-^>", { desc = "Last buffer" })
 vim.keymap.set("n", "<leader>bd", ":bdelete<CR>", { desc = "Delete current buffer and go to next" })
+
+vim.keymap.set("n", '<leader>ss', ":vsplit<CR>")
