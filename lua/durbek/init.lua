@@ -1,6 +1,5 @@
 require("durbek.remap")
 require("durbek.set")
-require("durbek.enable_lsp")
 
 function ColorMyPencils(color)
     kanagawa = "kanagawa"

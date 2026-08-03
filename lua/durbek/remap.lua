@@ -20,9 +20,10 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
 
 -- formatting
 vim.keymap.set("n", "<leader>z", ":%!jq<CR>", { noremap = true, silent = true })
-
--- exit vim in terminal mode
-vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
+vim.keymap.set("n", '>f', "vi{>", {desc = "indent a function"})
+vim.keymap.set("n", '<f', "vi{<", {desc = "back indent a function"})
+vim.keymap.set("n", '>b', "vi(>", {desc = "indent a bracket"})
+vim.keymap.set("n", '<b', "vi(<", {desc = "back indent a bracket"})
 
 -- buffer mappings
 vim.keymap.set("n", "<leader>j", ":bnext<CR>", { desc = "Next buffer" })
@@ -31,3 +32,4 @@ vim.keymap.set("n", "<leader>k", ":bprevious<CR>", { desc = "Previous buffer" })
 vim.keymap.set("n", "<leader>l", "<C-^>", { desc = "Last buffer" })
 vim.keymap.set("n", "<leader>bd", ":bdelete<CR>", { desc = "Delete current buffer and go to next" })
 vim.keymap.set("n", '<leader>ss', ":rightbelow vsplit #<CR>", {desc = "Splitting"})
+
