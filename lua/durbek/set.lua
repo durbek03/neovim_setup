@@ -9,7 +9,6 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 vim.opt.smartindent = true
-
 vim.opt.wrap = false
 
 vim.opt.swapfile = false
@@ -19,14 +18,13 @@ vim.opt.undofile = true
 
 vim.opt.incsearch = true
 
-vim.o.termguicolors = true
+vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
-vim.opt.isfname:append("@-@")
-
-vim.opt.updatetime = 50
 
 vim.opt.mouse = "a"
 
-vim.o.winborder = 'rounded'
+vim.opt.winborder = 'rounded'
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
